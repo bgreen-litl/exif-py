@@ -209,7 +209,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                              tag_dict=INTR_TAGS, stop_tag=stop_tag)
         # GPS IFD
         gps_off = hdr.tags.get(ifd_name+' GPSInfo')
-        if gps_off:
+        if gps_off and gps_off.values:
             logger.debug(' GPS SubIFD at offset %d:', gps_off.values[0])
             hdr.dump_IFD(gps_off.values[0], 'GPS', tag_dict=GPS_TAGS, stop_tag=stop_tag)
         ctr += 1
